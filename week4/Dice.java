@@ -10,6 +10,6 @@ public class Dice {
     }
 
     public int roll() {
-        return random.nextInt(numberOfSides);
+        return random.nextInt(numberOfSides)+1;
     }
 }
