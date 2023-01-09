@@ -44,7 +44,8 @@ public class Cow implements Milkable, Alive{
 
     @Override
     public double milk() {
+        double temp = this.amount;
         this.amount=0;
-        return 0;
+        return temp;
     }
 }
