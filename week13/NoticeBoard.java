@@ -1,23 +1,26 @@
-import javax.swing.*;
 import java.awt.*;
+import javax.swing.*;
 
-public class NoticeBoard {
-    private JFrame frame;
-    private JButton button;
-    private JLabel label;
+public class NoticeBoard extends JFrame {
+    private JTextField textField;
+    private JButton submitButton;
+    private JLabel displayLabel;
 
-    private void createComponents(Container container){
-        container.add(new JTextField());
-        JButton copyButton = new JButton("Copy!");
-        container.add(copyButton);
-    }
+    public NoticeBoard() {
+        setTitle("Notice Board");
+        setSize(300, 150);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-    public void start(){
-        this.frame = new JFrame();
-        this.frame.setSize(500, 300);
-        this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.frame.setVisible(true);
-        this.frame.setLayout(new GridLayout(3,1));
-        this.createComponents(this.frame);
+        textField = new JTextField();
+        submitButton = new JButton("Copy!");
+        displayLabel = new JLabel();
+
+        submitButton.addActionListener(new ActionEventListener(textField, displayLabel));
+
+        setLayout(new GridLayout(3, 1));
+
+        add(textField);
+        add(submitButton);
+        add(displayLabel);
     }
 }
